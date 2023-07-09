@@ -2,7 +2,7 @@ package importExam
 
 import "fmt"
 
-func ExecuteMapping(input []Exam) (output ImportExamInput) {
+func ExecuteMapping(input []Exam) (output GraphQLInput) {
 	var beforeExamType float64 = input[0].Type
 	var bundleList []ImportExamBundleInput
 	var partCount int = 0
@@ -124,11 +124,13 @@ func ExecuteMapping(input []Exam) (output ImportExamInput) {
 		beforeExamType = exam.Type
 	}
 
-	output = ImportExamInput{
-		ExamType:    Test,
-		Name:        "exam.name",
-		Description: "exam.dedescription",
-		BundleList:  bundleList,
+	output = GraphQLInput{
+		Input: ImportExamInput{
+			ExamType:    Test,
+			Name:        "exam.name",
+			Description: "exam.dedescription",
+			BundleList:  bundleList,
+		},
 	}
 	return
 }

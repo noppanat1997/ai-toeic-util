@@ -18,6 +18,6 @@ func main() {
 	output := importExam.ExecuteMapping(importExamInput)
 	fmt.Println(output)
 
-	file, _ := json.MarshalIndent(output, "", " ")
+	file, _ := json.MarshalIndent(output, "", "  ")
 	_ = ioutil.WriteFile("./output/exam1.json", file, 0644)
 }

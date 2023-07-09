@@ -1,5 +1,9 @@
 package importExam
 
+type GraphQLInput struct {
+	Input ImportExamInput `json:"input"`
+}
+
 type ImportExamInput struct {
 	ExamType    E_ExamType              `json:"examType"`
 	Name        string                  `json:"name"`
@@ -17,7 +21,7 @@ type ImportExamBundleInput struct {
 }
 
 type ImportExamBundleBundleQuestionInput struct {
-	Text  string   `json:"test"`
+	Text  string   `json:"text"`
 	Image []string `json:"image"`
 	Sound string   `json:"sound"`
 	Hint  string   `json:"hint"`
@@ -34,6 +38,6 @@ type ImportExamBundleQuestionInput struct {
 type ImportExamAnswerObjectInput struct {
 	AnswerIndex    int    `json:"answerIndex"`
 	Text           string `json:"text"`
-	ExplanationAns string `json:"explantionAns"`
+	ExplanationAns string `json:"explanationAns"`
 	IsCorrect      bool   `json:"isCorrect"`
 }
