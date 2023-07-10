@@ -42,6 +42,10 @@ func ExecuteMapping(input []Exam) (output GraphQLInput) {
 					IsCorrect:      false,
 				})
 			}
+			images := []string{}
+			if exam.Question.Image != "" {
+				images = append(images, exam.Question.Image)
+			}
 			bundleList = append(bundleList, ImportExamBundleInput{
 				BundleNo:    i,
 				Description: "",
@@ -60,7 +64,7 @@ func ExecuteMapping(input []Exam) (output GraphQLInput) {
 						Tags:        []string{},
 						Question: ImportExamBundleBundleQuestionInput{
 							Text:  exam.Question.Text,
-							Image: []string{exam.Question.Image},
+							Image: images,
 							Sound: exam.Question.Sound,
 							Hint:  exam.Question.Hint,
 						},
@@ -72,6 +76,10 @@ func ExecuteMapping(input []Exam) (output GraphQLInput) {
 		case 1:
 			var questionList []ImportExamBundleQuestionInput
 			for _, q := range exam.Childcards {
+				images := []string{}
+				if q.Question.Image != "" {
+					images = append(images, q.Question.Image)
+				}
 				var answerList []ImportExamAnswerObjectInput
 				for j, correctAns := range q.Answer.Texts {
 					answerList = append(answerList, ImportExamAnswerObjectInput{
@@ -95,13 +103,17 @@ func ExecuteMapping(input []Exam) (output GraphQLInput) {
 					Tags:        []string{},
 					Question: ImportExamBundleBundleQuestionInput{
 						Text:  q.Question.Text,
-						Image: []string{q.Question.Image},
+						Image: images,
 						Sound: q.Question.Sound,
 						Hint:  q.Question.Hint,
 					},
 					AnswerList: answerList,
 				})
 				questionNo += 1
+			}
+			images := []string{}
+			if exam.Question.Image != "" {
+				images = append(images, exam.Question.Image)
 			}
 			bundleList = append(bundleList, ImportExamBundleInput{
 				BundleNo:    i,
@@ -110,7 +122,7 @@ func ExecuteMapping(input []Exam) (output GraphQLInput) {
 				PartType:    partTypes[partCount],
 				BundleQuestion: ImportExamBundleBundleQuestionInput{
 					Text:  exam.Question.Text,
-					Image: []string{exam.Question.Image},
+					Image: images,
 					Sound: exam.Question.Sound,
 					Hint:  exam.Question.Hint,
 				},
