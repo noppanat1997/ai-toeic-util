@@ -52,10 +52,10 @@ func ExecuteMapping(input []Exam) (output GraphQLInput) {
 				TestType:    testType,
 				PartType:    partTypes[partCount],
 				BundleQuestion: ImportExamBundleBundleQuestionInput{
-					Text:  "",
-					Image: []string{},
-					Sound: "",
-					Hint:  "",
+					Text:   "",
+					Images: []string{},
+					Sound:  "",
+					Hint:   "",
 				},
 				QuestionList: []ImportExamBundleQuestionInput{
 					{
@@ -63,10 +63,10 @@ func ExecuteMapping(input []Exam) (output GraphQLInput) {
 						Explanation: "",
 						Tags:        []string{},
 						Question: ImportExamBundleBundleQuestionInput{
-							Text:  exam.Question.Text,
-							Image: images,
-							Sound: exam.Question.Sound,
-							Hint:  exam.Question.Hint,
+							Text:   exam.Question.Text,
+							Images: images,
+							Sound:  exam.Question.Sound,
+							Hint:   exam.Question.Hint,
 						},
 						AnswerList: answerList,
 					},
@@ -102,10 +102,10 @@ func ExecuteMapping(input []Exam) (output GraphQLInput) {
 					Explanation: "",
 					Tags:        []string{},
 					Question: ImportExamBundleBundleQuestionInput{
-						Text:  q.Question.Text,
-						Image: images,
-						Sound: q.Question.Sound,
-						Hint:  q.Question.Hint,
+						Text:   q.Question.Text,
+						Images: images,
+						Sound:  q.Question.Sound,
+						Hint:   q.Question.Hint,
 					},
 					AnswerList: answerList,
 				})
@@ -121,10 +121,10 @@ func ExecuteMapping(input []Exam) (output GraphQLInput) {
 				TestType:    testType,
 				PartType:    partTypes[partCount],
 				BundleQuestion: ImportExamBundleBundleQuestionInput{
-					Text:  exam.Question.Text,
-					Image: images,
-					Sound: exam.Question.Sound,
-					Hint:  exam.Question.Hint,
+					Text:   exam.Question.Text,
+					Images: images,
+					Sound:  exam.Question.Sound,
+					Hint:   exam.Question.Hint,
 				},
 				QuestionList: questionList,
 			})

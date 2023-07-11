@@ -21,10 +21,10 @@ type ImportExamBundleInput struct {
 }
 
 type ImportExamBundleBundleQuestionInput struct {
-	Text  string   `json:"text"`
-	Image []string `json:"image"`
-	Sound string   `json:"sound"`
-	Hint  string   `json:"hint"`
+	Text   string   `json:"text"`
+	Images []string `json:"images"`
+	Sound  string   `json:"sound"`
+	Hint   string   `json:"hint"`
 }
 
 type ImportExamBundleQuestionInput struct {
